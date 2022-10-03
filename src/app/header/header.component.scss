@@ -1,0 +1,41 @@
+header {
+  width: 100%;
+  background-color: whitesmoke;
+  padding: 0;
+  border-bottom: 2px solid purple;
+}
+a {
+  // color: #af1313;
+  color: black;
+}
+a:hover {
+  // color: #e72929;
+  color: black;
+  background-color: wheat;
+}
+.container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+a.logo {
+    font-weight: bold;
+    padding: 1em;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+}
+nav ul li a {
+  padding: 1em;
+  display: inline-block;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.fa-cart-shopping {
+  margin-right: 0.5em;
+}
+

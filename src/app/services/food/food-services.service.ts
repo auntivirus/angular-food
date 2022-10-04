@@ -102,6 +102,10 @@ export class FoodServicesService {
     ]
   };
 
+  getFoodById(id: number): Foods {
+    return this.getAllFood().find(food => food.id == id)!;
+  };
+
   getAllTag(): Tag[] {
     return [
       {name: 'All', count: this.getAllFood().length},

@@ -28,8 +28,10 @@ ul {
         object-fit: fill;
         transform: scale(1.1);
         // filter: grayscale(0%);
-        filter: blur(2px);
+        filter: blur(1.5px);
         transition: transform .5s, filter 1s ease-in-out;
+        border-bottom-left-radius: .5rem;
+        border-bottom-right-radius: .5rem;
       }
       img:hover {
         cursor: pointer;
@@ -54,9 +56,7 @@ li a:hover {
   right: 1rem;
   font-size: 1.2rem;
 }
-.favorite.not {
-  color: black;
-}
+
 .star {
   margin-bottom: .2rem;
 }

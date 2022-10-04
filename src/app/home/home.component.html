@@ -8,15 +8,15 @@
         <div class="name">
           {{ food.name }}
         </div>
-        <span class="favorite {{ food.favorite ? '' : 'not' }}"
-          ><i class="fa-solid fa-heart"></i
+        <span *ngIf="food.favorite" class="favorite {{ food.favorite ? '' : 'not' }}" style="margin-top: 5px;"
+          ><i class="fa-solid fa-heart fa-xl" title="It's your favorite!" data-toggle="tooltip"></i
         ></span>
         <div class="star">
           <star-rating
             [value]="food.stars"
             [totalstars]="5"
             checkedcolor="green"
-            uncheckedcolor="white"
+            uncheckedcolor="darkgray"
             size="24px"
             [readonly]="true"
             (rate)="onRate($event)"

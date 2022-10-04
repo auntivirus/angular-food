@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FoodServicesService } from '../services/food/food-services.service';
 import { Tag } from '../shared/models/tag';
 
@@ -8,11 +8,16 @@ import { Tag } from '../shared/models/tag';
   styleUrls: ['./tags.component.scss']
 })
 export class TagsComponent implements OnInit {
-  tags: Tag[] = [];
+  @Input() tags?: Tag[] = [];
+  @Input() foodPageTags?: string[];
+  @Input() justifyContent: string = 'center';
   constructor(private fs: FoodServicesService) { }
 
   ngOnInit(): void {
-    this.tags = this.fs.getAllTag();
+    if(!this.foodPageTags)
+    {
+      this.tags = this.fs.getAllTag();
+    }
   }
 
 }

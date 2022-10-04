@@ -22,12 +22,20 @@ ul {
       flex-direction: column;
       overflow: hidden;
       background-color: rgb(231, 226, 226);
+      // filter: grayscale(0%);
 
       img {
-        object-fit: contain;
+        object-fit: fill;
+        transform: scale(1.1);
+        // filter: grayscale(0%);
+        filter: blur(2px);
+        transition: transform .5s, filter 1s ease-in-out;
       }
       img:hover {
         cursor: pointer;
+        // filter: grayscale(100%);
+        filter: blur(0);
+        transform: scale(1);
       }
     }
   }

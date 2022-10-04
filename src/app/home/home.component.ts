@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   public foods: Foods[] = [];
+  public isEmpty: boolean = false;
 
   constructor(private fs: FoodServicesService, private router: ActivatedRoute) { };
 
@@ -19,6 +20,10 @@ export class HomeComponent implements OnInit {
       if(params['searchItem'])
       {
         this.foods = this.fs.getAllFood().filter(food => food.name.toLowerCase().includes(params['searchItem'].toLowerCase()))
+      }
+      else if (params['tag'])
+      {
+        this.foods = this.fs.getFoodsByTag(params['tag']);
       }
       else
       {
@@ -32,6 +37,6 @@ export class HomeComponent implements OnInit {
       New Value: ${$event.newValue},
       Checked Color: ${$event.starRating.checkedcolor},
       Unchecked Color: ${$event.starRating.uncheckedcolor}`);
-  }
+  };
 
 }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Foods } from 'src/app/shared/models/foods';
+import { Tag } from 'src/app/shared/models/tag';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class FoodServicesService {
         origins: ['USA'],
         stars: 4.5,
         imageURL:'assets/food-images/food-1.jpg',
-        tags: ['brownie','dessert','chocolate','cake']
+        tags: ['Brownie','Dessert','Chocolate','Cake']
       },
       {
         id: 2,
@@ -30,7 +31,7 @@ export class FoodServicesService {
         origins: ['USA','Germany'],
         stars: 3.5,
         imageURL:'assets/food-images/food-2.jpg',
-        tags: ['burger','burgers','fastfood']
+        tags: ['Burger','Fastfood']
       },
       {
         id: 3,
@@ -41,7 +42,7 @@ export class FoodServicesService {
         origins: ['Belgium'],
         stars: 3,
         imageURL:'assets/food-images/food-3.jpg',
-        tags: ['fries','frenchfries','fastfood','burger','burgerfries']
+        tags: ['fries','Fastfood','Burger']
       },
       {
         id: 4,
@@ -52,7 +53,7 @@ export class FoodServicesService {
         origins: ['USA', 'Italy'],
         stars: 2.5,
         imageURL:'assets/food-images/food-4.jpg',
-        tags: ['meatballs','spaghetti','spaghetti_meatballs','cake']
+        tags: ['Meatballs','Spaghetti']
       },
       {
         id: 5,
@@ -63,7 +64,7 @@ export class FoodServicesService {
         origins: ['Italy','Egyptians', 'Romans', 'Greeks'],
         stars: 1,
         imageURL:'assets/food-images/food-5.jpg',
-        tags: ['pizza','italianfood', 'pasta', 'pizzeria','instafood']
+        tags: ['Fastfood','Pizza','Lunch']
       },
       {
         id: 6,
@@ -74,7 +75,7 @@ export class FoodServicesService {
         origins: ['USA','India'],
         stars: 2.7,
         imageURL:'assets/food-images/food-6.jpg',
-        tags: ['sizzler','sizzlers', 'foodie']
+        tags: ['Sizzler']
       },
       {
         id: 7,
@@ -85,7 +86,7 @@ export class FoodServicesService {
         origins: ['India', 'South Asia'],
         stars: 3.3,
         imageURL:'assets/food-images/food-7.jpg',
-        tags: ['manchow','manchowsoup', 'soup','chinesesoup']
+        tags: ['Soup']
       },
       {
         id: 8,
@@ -96,8 +97,25 @@ export class FoodServicesService {
         origins: ['Mexico'],
         stars: 5,
         imageURL:'assets/food-images/food-8.jpg',
-        tags: ['tacos','mexicanfood', 'tacobell','tacotuesday']
+        tags: ['Taco', 'Fastfood']
       }
     ]
+  };
+
+  getAllTag(): Tag[] {
+    return [
+      {name: 'All', count: this.getAllFood().length},
+      {name: 'Fastfood', count: 4},
+      {name: 'Pizza', count: 1},
+      {name: 'Meatballs', count: 1},
+      {name: 'Burger', count: 2},
+      {name: 'Taco', count: 1},
+      {name: 'Soup', count: 1},
+      {name: 'Dessert',count: 1}
+    ];
+  };
+  getFoodsByTag(tag: string): Foods[] {
+    return tag == "All" ?
+    this.getAllFood() : this.getAllFood().filter(food => food.tags?.includes(tag));
   };
 }
